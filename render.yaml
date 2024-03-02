@@ -1,18 +1,17 @@
 databases:
-  - name: mysite
-    databaseName: mysite
-    user: mysite
-
+  - name: fitnessapp
+    databaseName: myfitness
+    user: mbek
  services:
- - type: pserv
-   name: pgbouncer
+ - type: web
+   name: web
    runtime: docker
    plan: standard
    repo: https://github.com/render-oss/docker-pgbouncer
    envVars:
    - key: DATABASE_URL
      fromDatabase:
-       name: mysite
+       name: fitnessapp
        property: connectionString
    - key: POOL_MODE
      value: transaction
